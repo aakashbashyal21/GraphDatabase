@@ -222,12 +222,12 @@ CREATE (n3)-[:LIKES]->(r4)
 
 
 //
-LOAD CSV WITH HEADERS FROM "file:///restaurant_location.csv" AS row
+LOAD CSV WITH HEADERS FROM "https://a.uguu.se/HWPA1K57hALu_restaurant_location.csv" AS row
 CREATE (n:restaurant_location)
 SET n = row
 
 //
-LOAD CSV WITH HEADERS FROM "file:///cusine.csv" AS row
+LOAD CSV WITH HEADERS FROM "https://a.uguu.se/8taatoV334Lc_cusine.csv" AS row
 CREATE (n:Cusine)
 SET n = row
 
@@ -240,6 +240,12 @@ CREATE (rs)-[:LOCATED_IN]->(rl)
 MATCH (rs:Restaurant),(c:Cusine)
 WHERE rs.id = c.restaurant_id
 CREATE (rs)-[:SERVES]->(c)
+
+
+
+MATCH (a:Person)-[r:LIKES]-(b), (b)-[s:SERVES]->(c)
+RETURN r, a, b, c
+ 
 
 //
 MATCH (person:Person)-[:IS_FRIEND_OF]->(friend:Person),
