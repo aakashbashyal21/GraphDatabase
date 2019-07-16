@@ -1,91 +1,10 @@
-CREATE (:Person {id: 'c7f96281', name:'Jimmy Bayer', email:'dudley22@joysclick.ru', dob:'1995-12-16'})
-CREATE (:Person {id: '3ae2fdf0', name:'Rosalind Senger', email:'agustin.rohan@lagooorka.ru', dob:'1991-04-28'})
-CREATE (:Person {id: 'c437f2b7', name:'Bobbie Anderson', email:'BobbieJAnderson@rhyta.com', dob:'1996-10-11'})
-CREATE (:Person {id: 'df134b31', name:'James Porter', email:'JamesPPorter@teleworm.ru', dob:'1992-03-16'})
-CREATE (:Person {id: 'd12b3080f',name:'Luis Fryer', email:'LuisMFryer@joysclick.ru', dob:'1995-03-09'})
-CREATE (:Person {id: 'd4df4e59', name:'Steve Mar', email:'SteveSMar@teleworm.com', dob:'1992-12-16'})
-CREATE (:Person {id: '8926fc51', name:'Frank Thomas', email:'FrankMThomas@joysclick.ru', dob:'1990-03-05'})
-CREATE (:Person {id: 'c3858bde', name:'Della Cruz', email:'DellaJCruz@dayrep.com', dob:'1995-12-28'})
-CREATE (:Person {id: '0bf0599d', name:'Wilson Dillon', email:'WilsonNDillon@dayrep.com', dob:'1991-12-16'})
-CREATE (:Person {id: '216de5af', name:'Beulah Clinton', email:'BeulahJClinton@jourrapide.ru', dob:'1988-12-16'})
-
-
-
-CREATE(:person_address {person_id:'216de5af', street_address:'2620 Ryder Avenue', city:'Kent', state:'WA'})
-CREATE(:person_address {person_id:'0bf0599d', street_address:'936 Zulauf Squares', city:'Kent', state:'IA'})
-CREATE(:person_address {person_id:'c3858bde', street_address:'4913 Central Avenue', city:'New Brunswick', state:'NJ'})
-CREATE(:person_address {person_id:'8926fc51', street_address:'360 Frederick Street', city:'Kent', state:'AL'})
-CREATE(:person_address {person_id:'d4df4e59', street_address:'373 Hart Street', city:'Kent', state:'CT'})
-CREATE(:person_address {person_id:'df134b31', street_address:'4040 Lightning Point Drive', city:'Kent', state:'TN'})
-CREATE(:person_address {person_id:'c437f2b7', street_address:'2620 Ryder Avenue', city:'Madison', state:'WI'})
-CREATE(:person_address {person_id:'3ae2fdf0', street_address:'4230 Cliffside Drive', city:'Andover', state:'NY'})
-CREATE(:person_address {person_id:'c7f96281', street_address:'806 Red Dog Road', city:'Charlotte', state:'NC'})
-CREATE(:person_address {person_id:'d12b3080f', street_address:'2167 Lady Bug Drive', city:'Whitestone', state:'NY'})
-
-
-
-
-
-CREATE(:restaruant_location {location:"Kent", restaturant_id:'1' })
-CREATE(:restaruant_location {location:"Richmond", restaturant_id:'2' })
-CREATE(:restaruant_location {location:"Richmond", restaturant_id:'2' })
-CREATE(:restaruant_location {location:"Texas", restaturant_id:'3' })
-CREATE(:restaruant_location {location:"Philadelphia", restaturant_id:'2' })
-CREATE(:restaruant_location {location:"Philadelphia", restaturant_id:'1' })
-CREATE(:restaruant_location {location:"Texas", restaturant_id:'3' })
-CREATE(:restaruant_location {location:"Madison", restaturant_id:'2' })
-CREATE(:restaruant_location {location:"Philadelphia", restaturant_id:'3' })
-CREATE(:restaruant_location {location:"Texas", restaturant_id:'2' })
-CREATE(:restaruant_location {location:"Whitestone", restaturant_id:'5' })
-CREATE(:restaruant_location {location:"Whitestone", restaturant_id:'3' })
-CREATE(:restaruant_location {location:"Whitestone", restaturant_id:'1' })
-CREATE(:restaruant_location {location:"Texas", restaturant_id:'5' })
-CREATE(:restaruant_location {location:"Madison", restaturant_id:'4' })
-CREATE(:restaruant_location {location:"Kent", restaturant_id:'5' })
-
-
-
-CREATE(:cusine {name:"batter Fish"}) //continental
-CREATE(:cusine {name:"chicken & Cheese Salad"})
-CREATE(:cusine {name:"paneer Steak"})
-CREATE(:cusine {name:"Baked Mushrooms & Spinach"})
-CREATE(:cusine {name:"Barbequed Chicken"})
-CREATE(:cusine {name:"Broccoli Bake"})
-CREATE(:cusine {name:"Buttered Potatoes"})
-CREATE(:cusine {name:"Cheese Fondue"})
-CREATE(:cusine {name:"Daal Bhat Tarkari"})
-CREATE(:cusine {name:"Momo"})
-CREATE(:cusine {name:"Chatamari"})
-CREATE(:cusine {name:"Dheedo"})
-CREATE(:cusine {name:"Aloo Tama"})
-CREATE(:cusine {name:"Yomari"})
-CREATE(:cusine {name:"Pizza"})
-CREATE(:cusine {name:"Bottarga"})
-CREATE(:cusine {name:"Lasagna"})
-CREATE(:cusine {name:"Fiorentina Steak"})
-CREATE(:cusine {name:"Ribollita"})
-CREATE(:cusine {name:"Polenta"})
-CREATE(:cusine {name:"Ossobuco"})
-CREATE(:cusine {name:"Spicy Shrimp Soup"})
-CREATE(:cusine {name:"Som Tum"})
-CREATE(:cusine {name:"Tom Kha Kai"})
-CREATE(:cusine {name:"Pad Thai"})
-CREATE(:cusine {name:"Vada pav"})
-CREATE(:cusine {name:"Samosa"})
-CREATE(:cusine {name:"Paav Bhaji"})
-CREATE(:cusine {name:"Pakora"})
-CREATE(:cusine {name:"Aloo Tikki Chole"})
-CREATE(:cusine {name:"Bhelpuri"})
-CREATE(:cusine {name:"Fafda"})
-CREATE(:cusine {name:"Upma"})
-CREATE(:cusine {name:"Jalebi"})
-
-
-//
-MATCH (n)
-DETACH DELETE n
-
 // Insert First
+
+Lets create a NODE with called Person person having the attributes:
+
+id, name, email, dob
+
+
 CREATE (:Person {id: 'c7f96281', name:'Jimmy Bayer', email:'dudley22@joysclick.ru', dob:'1995-12-16'})
 
 //Similarly address
@@ -247,7 +166,7 @@ MATCH (a:Person)-[r:LIKES]-(b), (b)-[s:SERVES]->(c)
 RETURN r, a, b, c
  
 
-//
+//Friends of BobbieJAnderson who likes Indian restaurant located at Kent that serves Samosa
 MATCH (person:Person)-[:IS_FRIEND_OF]->(friend:Person),
 (friend)-[:LIKES]->(rest:Restaurant),
 (rest)-[:LOCATED_IN]->(loc:restaurant_location),
@@ -255,7 +174,10 @@ MATCH (person:Person)-[:IS_FRIEND_OF]->(friend:Person),
 where person.email= 'BobbieJAnderson@rhyta.com'
 AND type.name = 'Samosa'
 AND loc.location = 'Kent'
-RETURN rest.name, loc.location, friend.name
+RETURN person,rest, loc.name, friend
+
+
+
 
 //
 
@@ -276,3 +198,102 @@ AND address.city='Kent'
 AND rest.name = 'Nepali'
 RETURN friend.name
 
+
+
+
+
+
+
+
+
+//data sets
+
+
+//Create node called person
+
+CREATE (:Person {id: 'c7f96281', name:'Jimmy Bayer', email:'dudley22@joysclick.ru', dob:'1995-12-16'})
+CREATE (:Person {id: '3ae2fdf0', name:'Rosalind Senger', email:'agustin.rohan@lagooorka.ru', dob:'1991-04-28'})
+CREATE (:Person {id: 'c437f2b7', name:'Bobbie Anderson', email:'BobbieJAnderson@rhyta.com', dob:'1996-10-11'})
+CREATE (:Person {id: 'df134b31', name:'James Porter', email:'JamesPPorter@teleworm.ru', dob:'1992-03-16'})
+CREATE (:Person {id: 'd12b3080f',name:'Luis Fryer', email:'LuisMFryer@joysclick.ru', dob:'1995-03-09'})
+CREATE (:Person {id: 'd4df4e59', name:'Steve Mar', email:'SteveSMar@teleworm.com', dob:'1992-12-16'})
+CREATE (:Person {id: '8926fc51', name:'Frank Thomas', email:'FrankMThomas@joysclick.ru', dob:'1990-03-05'})
+CREATE (:Person {id: 'c3858bde', name:'Della Cruz', email:'DellaJCruz@dayrep.com', dob:'1995-12-28'})
+CREATE (:Person {id: '0bf0599d', name:'Wilson Dillon', email:'WilsonNDillon@dayrep.com', dob:'1991-12-16'})
+CREATE (:Person {id: '216de5af', name:'Beulah Clinton', email:'BeulahJClinton@jourrapide.ru', dob:'1988-12-16'})
+
+
+
+CREATE(:person_address {person_id:'216de5af', street_address:'2620 Ryder Avenue', city:'Kent', state:'WA'})
+CREATE(:person_address {person_id:'0bf0599d', street_address:'936 Zulauf Squares', city:'Kent', state:'IA'})
+CREATE(:person_address {person_id:'c3858bde', street_address:'4913 Central Avenue', city:'New Brunswick', state:'NJ'})
+CREATE(:person_address {person_id:'8926fc51', street_address:'360 Frederick Street', city:'Kent', state:'AL'})
+CREATE(:person_address {person_id:'d4df4e59', street_address:'373 Hart Street', city:'Kent', state:'CT'})
+CREATE(:person_address {person_id:'df134b31', street_address:'4040 Lightning Point Drive', city:'Kent', state:'TN'})
+CREATE(:person_address {person_id:'c437f2b7', street_address:'2620 Ryder Avenue', city:'Madison', state:'WI'})
+CREATE(:person_address {person_id:'3ae2fdf0', street_address:'4230 Cliffside Drive', city:'Andover', state:'NY'})
+CREATE(:person_address {person_id:'c7f96281', street_address:'806 Red Dog Road', city:'Charlotte', state:'NC'})
+CREATE(:person_address {person_id:'d12b3080f', street_address:'2167 Lady Bug Drive', city:'Whitestone', state:'NY'})
+
+
+
+
+
+CREATE(:restaruant_location {location:"Kent", restaturant_id:'1' })
+CREATE(:restaruant_location {location:"Richmond", restaturant_id:'2' })
+CREATE(:restaruant_location {location:"Richmond", restaturant_id:'2' })
+CREATE(:restaruant_location {location:"Texas", restaturant_id:'3' })
+CREATE(:restaruant_location {location:"Philadelphia", restaturant_id:'2' })
+CREATE(:restaruant_location {location:"Philadelphia", restaturant_id:'1' })
+CREATE(:restaruant_location {location:"Texas", restaturant_id:'3' })
+CREATE(:restaruant_location {location:"Madison", restaturant_id:'2' })
+CREATE(:restaruant_location {location:"Philadelphia", restaturant_id:'3' })
+CREATE(:restaruant_location {location:"Texas", restaturant_id:'2' })
+CREATE(:restaruant_location {location:"Whitestone", restaturant_id:'5' })
+CREATE(:restaruant_location {location:"Whitestone", restaturant_id:'3' })
+CREATE(:restaruant_location {location:"Whitestone", restaturant_id:'1' })
+CREATE(:restaruant_location {location:"Texas", restaturant_id:'5' })
+CREATE(:restaruant_location {location:"Madison", restaturant_id:'4' })
+CREATE(:restaruant_location {location:"Kent", restaturant_id:'5' })
+
+
+
+CREATE(:cusine {name:"batter Fish"}) //continental
+CREATE(:cusine {name:"chicken & Cheese Salad"})
+CREATE(:cusine {name:"paneer Steak"})
+CREATE(:cusine {name:"Baked Mushrooms & Spinach"})
+CREATE(:cusine {name:"Barbequed Chicken"})
+CREATE(:cusine {name:"Broccoli Bake"})
+CREATE(:cusine {name:"Buttered Potatoes"})
+CREATE(:cusine {name:"Cheese Fondue"})
+CREATE(:cusine {name:"Daal Bhat Tarkari"})
+CREATE(:cusine {name:"Momo"})
+CREATE(:cusine {name:"Chatamari"})
+CREATE(:cusine {name:"Dheedo"})
+CREATE(:cusine {name:"Aloo Tama"})
+CREATE(:cusine {name:"Yomari"})
+CREATE(:cusine {name:"Pizza"})
+CREATE(:cusine {name:"Bottarga"})
+CREATE(:cusine {name:"Lasagna"})
+CREATE(:cusine {name:"Fiorentina Steak"})
+CREATE(:cusine {name:"Ribollita"})
+CREATE(:cusine {name:"Polenta"})
+CREATE(:cusine {name:"Ossobuco"})
+CREATE(:cusine {name:"Spicy Shrimp Soup"})
+CREATE(:cusine {name:"Som Tum"})
+CREATE(:cusine {name:"Tom Kha Kai"})
+CREATE(:cusine {name:"Pad Thai"})
+CREATE(:cusine {name:"Vada pav"})
+CREATE(:cusine {name:"Samosa"})
+CREATE(:cusine {name:"Paav Bhaji"})
+CREATE(:cusine {name:"Pakora"})
+CREATE(:cusine {name:"Aloo Tikki Chole"})
+CREATE(:cusine {name:"Bhelpuri"})
+CREATE(:cusine {name:"Fafda"})
+CREATE(:cusine {name:"Upma"})
+CREATE(:cusine {name:"Jalebi"})
+
+
+//
+MATCH (n)
+DETACH DELETE n
